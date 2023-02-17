@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frosty_glass_app/effects/frosty_glass_effect.dart';
 
 void main() {
   runApp(const App());
@@ -37,10 +38,13 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: FlutterLogo(
-          size: MediaQuery.of(context).size.width * 0.5,
-          textColor: Colors.indigo,
-          style: FlutterLogoStyle.markOnly,
+        child: FrostyGlassEffect(
+          color: Colors.grey.shade200,
+          child: FlutterLogo(
+            size: MediaQuery.of(context).size.width * 0.5,
+            textColor: Colors.indigo,
+            style: FlutterLogoStyle.markOnly,
+          ),
         ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
