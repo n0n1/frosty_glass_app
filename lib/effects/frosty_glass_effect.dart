@@ -10,7 +10,7 @@ class FrostyGlassEffect extends StatelessWidget {
     double? opacity,
     double? sigmaX,
     double? sigmaY,
-  })  : _color = color,
+  })  : _color = color ?? Colors.black87,
         _sigmaX = sigmaX ?? 10,
         _sigmaY = sigmaY ?? 10,
         _opacity = opacity ?? 0.4;

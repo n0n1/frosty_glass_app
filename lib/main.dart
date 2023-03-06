@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frosty_glass_app/effects/frosty_glass_effect.dart';
+import 'package:frosty_glass_app/logo/app_logo.dart';
+import 'package:frosty_glass_app/splash/background_view.dart';
 
 void main() {
   runApp(const App());
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: const HomePage(title: 'Frosty Glass'),
+      home: const HomePage(title: 'Friend5hip'),
     );
   }
 }
@@ -30,22 +31,21 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: FrostyGlassEffect(
-          color: Colors.grey.shade200,
-          child: FlutterLogo(
-            size: MediaQuery.of(context).size.width * 0.5,
-            textColor: Colors.indigo,
-            style: FlutterLogoStyle.markOnly,
-          ),
-        ),
+      backgroundColor: Colors.black87.withOpacity(0.5),
+      body: Stack(
+        children: const [
+          BackgroundView(),
+          AppLogo(),
+        ],
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
